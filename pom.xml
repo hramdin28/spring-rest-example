@@ -80,11 +80,10 @@
 			<id>ecr</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>registry</name>
-					<value>ecr</value>
-				</property>
 			</activation>
+			<properties>
+				<spring.profiles.active>ecr</spring.profiles.active>
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
