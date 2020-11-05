@@ -13,7 +13,7 @@ pipeline {
                 git 'https://github.com/hramdin28/spring-rest-example'
 
                 // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true clean package -P jenkins"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
@@ -28,5 +28,15 @@ pipeline {
                 }
             }
         }
+        
+        stage('Push image') {
+	        steps {
+		        script {
+			        docker.withRegistry('https://588146567111.dkr.ecr.us-east-1.amazonaws.com/hanish-dev', 'ecr:us-east-1:ecr-user') {
+	            		sh "docker push spring-rest:latest"
+	        		}
+		        }
+	        }
+    	}
     }
 }
