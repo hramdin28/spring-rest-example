@@ -77,7 +77,14 @@
 
 	<profiles>
 		<profile>
-			<id>jenkins</id>
+			<id>ecr</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>registry</name>
+					<value>ecr</value>
+				</property>
+			</activation>
 			<build>
 				<plugins>
 					<plugin>
