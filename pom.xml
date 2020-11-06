@@ -84,7 +84,6 @@
 						<groupId>io.fabric8</groupId>
 						<artifactId>fabric8-maven-plugin</artifactId>
 						<configuration>
-							<registry>588146567111.dkr.ecr.us-east-1.amazonaws.com/hanish-dev</registry>
 							<verbose>true</verbose>
 							<images>
 								<image>
