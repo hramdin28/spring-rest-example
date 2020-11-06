@@ -27,3 +27,6 @@ hs_err_pid*
 .settings/
 target/
 /target/**
+target/classes/META-INF/maven/com.hanish/spring-rest-example/pom.properties
+target/classes/META-INF/maven/com.hanish/spring-rest-example/pom.xml
+.DS_Store

@@ -78,18 +78,33 @@
 	<profiles>
 		<profile>
 			<id>ecr</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>registry</name>
+					<value>ecr</value>
+				</property>
+				<file>
+					<exists>deploy</exists>
+				</file>
+			</activation>
 			<build>
 				<plugins>
 					<plugin>
 						<groupId>io.fabric8</groupId>
 						<artifactId>fabric8-maven-plugin</artifactId>
 						<configuration>
-							<verbose>true</verbose>
+							<mode>kubernetes</mode>
+							<forcePull>true</forcePull>
 							<images>
 								<image>
 									<name>spring-rest:${project.version}</name>
 									<build>
-										<dockerFileDir>${project.basedir}</dockerFileDir>
+										<tags>
+											<tag>v2</tag>
+										</tags>
+										<dockerFile>${project.basedir}/deploy/Dockerfile</dockerFile>
+										<contextDir>${project.basedir}</contextDir>
 									</build>
 								</image>
 							</images>
