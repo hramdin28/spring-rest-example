@@ -18,7 +18,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<docker.image.prefix>app</docker.image.prefix>
-		<docker.repository>588146567111.dkr.ecr.us-east-1.amazonaws.com/hanish-dev</docker.repository>
+		<docker.repository>588146567111.dkr.ecr.us-east-1.amazonaws.com</docker.repository>
 	</properties>
 
 	<dependencies>
@@ -87,7 +87,7 @@
 							<verbose>true</verbose>
 							<images>
 								<image>
-									<name>spring-rest:${project.version}</name>
+									<name>${docker.repository}/hanish-dev/spring-rest:${project.version}</name>
 									<build>
 										<dockerFileDir>${project.basedir}</dockerFileDir>
 									</build>
